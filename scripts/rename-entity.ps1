@@ -46,6 +46,19 @@ function ShouldExclude([string]$path) {
     return $false
 }
 
+# Filenames that are project-scaffolding conventions, not entity-derived names.
+# '.env.example' contains the substring 'example', so the rename pass below
+# would otherwise rename it to e.g. '.env.product' and break the documented
+# 'cp .env.example .env' setup flow.
+$ConventionFilePatterns = @('.env*.example')
+
+function IsConventionFile([string]$name) {
+    foreach ($pattern in $ConventionFilePatterns) {
+        if ($name -like $pattern) { return $true }
+    }
+    return $false
+}
+
 # ── Guard: Example must still exist in the codebase ────────────────────────────
 $foundInName = Get-ChildItem -Recurse |
     Where-Object { $_.Name -like "*$OldPascalSingular*" -and -not (ShouldExclude $_.FullName) } |
@@ -155,7 +168,7 @@ $filesToRename = Get-ChildItem -Recurse -File | Where-Object {
     $name = $_.Name
     $hit  = $false
     foreach ($r in $Replacements) { if ($name -like "*$($r.Old)*") { $hit = $true; break } }
-    $hit -and -not (ShouldExclude $_.FullName)
+    $hit -and -not (ShouldExclude $_.FullName) -and -not (IsConventionFile $name)
 }
 
 foreach ($file in $filesToRename) {
