@@ -1,0 +1,9 @@
+global using ApiTemplate.Application.Auth;
+global using ApiTemplate.Application.Common.Interfaces;
+global using ApiTemplate.Application.Common.Models;
+global using ApiTemplate.Domain.Entities;
+global using ApiTemplate.Infrastructure.Persistence;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Options;

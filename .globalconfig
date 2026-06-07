@@ -1,0 +1,13 @@
+is_global = true
+global_level = 100
+
+dotnet_diagnostic.CA1031.severity = suggestion
+dotnet_diagnostic.CA2007.severity = none
+dotnet_diagnostic.CA1062.severity = suggestion
+# LoggerMessage delegates are a perf optimisation; templates value readability over micro-perf
+dotnet_diagnostic.CA1848.severity = none
+dotnet_diagnostic.CA1873.severity = none
+# Serilog's Console sink overload triggers a false-positive locale warning
+dotnet_diagnostic.CA1305.severity = suggestion
+# Test methods use underscore-separated names (Given_When_Then convention)
+dotnet_diagnostic.CA1707.severity = none

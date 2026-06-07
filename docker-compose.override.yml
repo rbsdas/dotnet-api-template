@@ -1,0 +1,13 @@
+# docker-compose.override.yml — local development overrides.
+#
+# NOTE: .NET hot reload (dotnet watch) does NOT work inside Docker on most
+# machines due to file-system event limitations. For a fast inner loop, run
+# the API locally with 'make run' and use 'make docker-up' only for PostgreSQL.
+services:
+  api:
+    build:
+      args:
+        - BUILD_CONFIGURATION=Debug
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080

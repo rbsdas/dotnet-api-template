@@ -1,0 +1,67 @@
+## .NET / Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+TestResults/
+coverage/
+publish/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+[Bb]uilds/
+
+## NuGet
+*.nuget.props
+*.nuget.targets
+packages/
+!packages/repositories.config
+.nuget/
+
+## Rider
+.idea/
+*.sln.iml
+
+## JetBrains
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## Secrets and environment
+.env
+.env.local
+.env.*.local
+*.pfx
+*.p12
+secrets.json
+appsettings.*.local.json
+
+## OS
+.DS_Store
+Thumbs.db
+desktop.ini

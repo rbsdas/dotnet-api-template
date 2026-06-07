@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore ApiTemplate.sln
+
+      - name: Build Release
+        run: dotnet build ApiTemplate.sln -c Release --no-restore
+
+      - name: Publish
+        run: dotnet publish src/ApiTemplate.Api/ApiTemplate.Api.csproj -c Release -o ./publish --no-build
+
+      - name: Create release archive
+        run: zip -r ApiTemplate-${{ github.ref_name }}.zip ./publish
+
+      - name: Extract changelog for this version
+        id: changelog
+        run: |
+          version="${{ github.ref_name }}"
+          version_clean="${version#v}"
+          notes=$(awk "/## \[${version_clean}\]/{flag=1; next} /## \[/{flag=0} flag" CHANGELOG.md)
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$notes" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: ${{ steps.changelog.outputs.notes }}
+          files: ApiTemplate-${{ github.ref_name }}.zip

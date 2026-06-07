@@ -1,0 +1,10 @@
+global using ApiTemplate.Application.Common.Exceptions;
+global using ApiTemplate.Application.Common.Interfaces;
+global using ApiTemplate.Application.Examples;
+global using ApiTemplate.Application.Examples.Dtos;
+global using ApiTemplate.Application.Auth;
+global using ApiTemplate.Application.Auth.Dtos;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Options;
