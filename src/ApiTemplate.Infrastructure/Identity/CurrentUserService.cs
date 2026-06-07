@@ -1,6 +1,6 @@
+using System.Security.Claims;
 using ApiTemplate.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
 
 namespace ApiTemplate.Infrastructure.Identity;
 

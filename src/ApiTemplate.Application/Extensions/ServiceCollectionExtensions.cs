@@ -1,9 +1,9 @@
 using ApiTemplate.Application.Auth;
+using ApiTemplate.Application.Auth.Dtos;
 using ApiTemplate.Application.Auth.Validators;
 using ApiTemplate.Application.Examples;
-using ApiTemplate.Application.Examples.Validators;
-using ApiTemplate.Application.Auth.Dtos;
 using ApiTemplate.Application.Examples.Dtos;
+using ApiTemplate.Application.Examples.Validators;
 
 namespace ApiTemplate.Application.Extensions;
 

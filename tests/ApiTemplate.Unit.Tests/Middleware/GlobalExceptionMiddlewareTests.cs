@@ -1,7 +1,7 @@
+using System.Text.Json;
 using ApiTemplate.Api.Middleware;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System.Text.Json;
 
 namespace ApiTemplate.Unit.Tests.Middleware;
 

@@ -1,9 +1,9 @@
+using ApiTemplate.Api.Extensions;
 using ApiTemplate.Application.Extensions;
 using ApiTemplate.Infrastructure.Extensions;
 using ApiTemplate.Infrastructure.Persistence;
-using ApiTemplate.Api.Extensions;
-using Serilog;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console(formatProvider: System.Globalization.CultureInfo.InvariantCulture)

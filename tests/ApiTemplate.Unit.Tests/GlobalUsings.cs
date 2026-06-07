@@ -1,12 +1,12 @@
+global using ApiTemplate.Application.Auth;
+global using ApiTemplate.Application.Auth.Dtos;
+global using ApiTemplate.Application.Auth.Validators;
 global using ApiTemplate.Application.Common.Exceptions;
 global using ApiTemplate.Application.Common.Interfaces;
 global using ApiTemplate.Application.Common.Models;
 global using ApiTemplate.Application.Examples;
 global using ApiTemplate.Application.Examples.Dtos;
 global using ApiTemplate.Application.Examples.Validators;
-global using ApiTemplate.Application.Auth;
-global using ApiTemplate.Application.Auth.Dtos;
-global using ApiTemplate.Application.Auth.Validators;
 global using ApiTemplate.Domain.Entities;
 global using ApiTemplate.Domain.Enums;
 global using FluentAssertions;
